@@ -1,0 +1,19 @@
+Package: SPARROW
+Type: Package
+Title: SPARROW - Spatial Proximity and Alignment of Regions with Overlap and Wrapping
+Version: 0.1.0
+Authors@R: person("Xu", "Pan", email = "panx9623@email.com", role = c("aut", "cre"))
+Description: Toolkit for visualizing and analyzing spatial transcriptomics data with probabilistic cell type annotation and spatial overlap metrics.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.1
+Imports:
+    ggplot2,
+    cowplot,
+    mclust,
+    fields,
+    S4Vectors,
+    methods,
+    stats,
+    ggnewscale
