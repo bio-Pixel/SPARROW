@@ -10,9 +10,6 @@
 #' @return ggplot object
 #' @export
 plotMultiCellTypeProb <- function(object, celltype = NULL, pt.size = 1, outline = TRUE, color = NULL, coord.fixed = TRUE) {
-  if (!requireNamespace("ggnewscale", quietly = TRUE)) stop("Package 'ggnewscale' is required")
-  if (!requireNamespace("cowplot", quietly = TRUE)) stop("Package 'cowplot' is required")
-
   prob <- object@cell_prob
   meta <- as.data.frame(object@meta.data)
   coords <- meta[, c("row", "col")]
