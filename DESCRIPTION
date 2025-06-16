@@ -17,4 +17,5 @@ Imports:
     S4Vectors,
     methods,
     stats,
-    ggnewscale
+    ggnewscale,
+    V8
