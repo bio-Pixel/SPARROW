@@ -143,7 +143,6 @@ evaluate_overlap_metrics <- function(bin1, bin2, coords = NULL, bin_size_um = 50
 #' @return Data frame with mean, sd, and se of bidirectional nearest-neighbor distances (in bin and μm)
 #' @export
 evaluate_bidirectional_nn_distance <- function(bin1, bin2, coords, bin_size_um = 50) {
-  if (!requireNamespace("fields", quietly = TRUE)) stop("Package 'fields' is required for rdist.")
   stopifnot(length(bin1) == length(bin2))
   bin1 <- as.logical(bin1)
   bin2 <- as.logical(bin2)
