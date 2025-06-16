@@ -2,8 +2,6 @@
 #' @import ggplot2
 
 concave_dat <- function(coords, concavity = 1) {
-  if (!requireNamespace("concaveman", quietly = TRUE)) install.packages("concaveman")
-  if (!requireNamespace("sf", quietly = TRUE)) install.packages("sf")
   df <- coords
   colnames(df) <- c("x", "y")
   hull_df <- as.data.frame(concaveman::concaveman(as.matrix(df), concavity = concavity))
