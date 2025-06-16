@@ -97,7 +97,6 @@ setMethod("getParams", "CellProxobj", function(object) object@params)
 
 # Generate a fixed palette of 100 distinct colors using viridis and hue
 .generate_color_palette <- function(n = 100) {
-  if (!requireNamespace("viridisLite", quietly = TRUE)) install.packages("viridisLite")
   v <- viridisLite::viridis(n, option = "D")
   return(setNames(v, NULL))
 }
