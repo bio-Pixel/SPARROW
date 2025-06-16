@@ -1,5 +1,5 @@
 
-setClass("CellProxobj",
+setClass("SPARobj",
          slots = list(
            coords = "matrix",
            expr = "dgCMatrix",
@@ -10,7 +10,7 @@ setClass("CellProxobj",
          )
 )
 
-createCellProxobj <- function(coords, expr, cell_prob, meta.data = NULL, params = list()) { 
+createSPARobj <- function(coords, expr, cell_prob, meta.data = NULL, params = list()) { 
   coords <- as.matrix(coords)
   colnames(coords) <- c("row", "col")
   expr <- methods::as(expr, "dgCMatrix")
@@ -66,7 +66,7 @@ createCellProxobj <- function(coords, expr, cell_prob, meta.data = NULL, params 
   # Add to params
   params <- c(params, list(celltype_colors = celltype_colors))
 
-  new("CellProxobj", 
+  new("SPARobj", 
       coords = coords,
       expr = expr,
       cell_prob = cell_prob,
@@ -78,22 +78,22 @@ createCellProxobj <- function(coords, expr, cell_prob, meta.data = NULL, params 
 
 # Accessor methods
 setGeneric("getCoords", function(object) standardGeneric("getCoords"))
-setMethod("getCoords", "CellProxobj", function(object) object@coords)
+setMethod("getCoords", "SPARobj", function(object) object@coords)
 
 setGeneric("getExpr", function(object) standardGeneric("getExpr"))
-setMethod("getExpr", "CellProxobj", function(object) object@expr)
+setMethod("getExpr", "SPARobj", function(object) object@expr)
 
 setGeneric("getCellProb", function(object) standardGeneric("getCellProb"))
-setMethod("getCellProb", "CellProxobj", function(object) object@cell_prob)
+setMethod("getCellProb", "SPARobj", function(object) object@cell_prob)
 
 setGeneric("getMeta", function(object) standardGeneric("getMeta"))
-setMethod("getMeta", "CellProxobj", function(object) object@meta.data)
+setMethod("getMeta", "SPARobj", function(object) object@meta.data)
 
 setGeneric("getCelltypes", function(object) standardGeneric("getCelltypes"))
-setMethod("getCelltypes", "CellProxobj", function(object) object@celltypes)
+setMethod("getCelltypes", "SPARobj", function(object) object@celltypes)
 
 setGeneric("getParams", function(object) standardGeneric("getParams"))
-setMethod("getParams", "CellProxobj", function(object) object@params)
+setMethod("getParams", "SPARobj", function(object) object@params)
 
 # Generate a fixed palette of 100 distinct colors using viridis and hue
 .generate_color_palette <- function(n = 100) {
